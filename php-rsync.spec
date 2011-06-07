@@ -15,6 +15,7 @@ Source1:	B21_rsync.ini
 BuildRequires:	php-devel >= 3:5.2.0
 BuildRequires:	librsync-devel >= 0.9.7
 BuildRequires:	popt-devel
+BuildRequires:	bzip2-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
