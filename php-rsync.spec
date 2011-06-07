@@ -14,6 +14,7 @@ Source0:	http://pecl.php.net/get/rsync-%{version}.tgz
 Source1:	B21_rsync.ini
 BuildRequires:	php-devel >= 3:5.2.0
 BuildRequires:	librsync-devel >= 0.9.7
+BuildRequires:	popd-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
