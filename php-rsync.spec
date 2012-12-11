@@ -6,7 +6,7 @@
 Summary:	Wrapper for librsync library
 Name:		php-%{modname}
 Version:	0.1.0
-Release:	%mkrel 5
+Release:	6
 Group:		Development/PHP
 License:	Modified BSD License
 URL:		http://pecl.php.net/package/rsync/
@@ -16,7 +16,6 @@ BuildRequires:	php-devel >= 3:5.2.0
 BuildRequires:	librsync-devel >= 0.9.7
 BuildRequires:	popt-devel
 BuildRequires:	bzip2-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 include the posibility to php to generate signatur files, patches and patch
@@ -37,14 +36,12 @@ chmod 644 LICENSE rsync_extension.php examples/*.php
 %serverbuild
 
 phpize
-%configure2_5x --with-libdir=%{_lib} \
+%configure2_5x --disable-static --with-libdir=%{_lib} \
     --with-%{modname}=shared,%{_prefix}
 %make
 mv modules/*.so .
 
 %install
-rm -rf %{buildroot} 
-
 install -d %{buildroot}%{_libdir}/php/extensions
 install -d %{buildroot}%{_sysconfdir}/php.d
 
@@ -63,12 +60,38 @@ if [ "$1" = "0" ]; then
     fi
 fi
 
-%clean
-rm -rf %{buildroot}
-
 %files
 %defattr(-,root,root)
 %doc LICENSE rsync_extension.php examples/*.php
 %config(noreplace) %attr(0644,root,root) %{_sysconfdir}/php.d/%{inifile}
 %attr(0755,root,root) %{_libdir}/php/extensions/%{soname}
 
+
+
+%changelog
+* Thu May 03 2012 Oden Eriksson <oeriksson@mandriva.com> 0.1.0-5mdv2012.0
++ Revision: 795495
+- rebuild for php-5.4.x
+
+* Sun Jan 15 2012 Oden Eriksson <oeriksson@mandriva.com> 0.1.0-4
++ Revision: 761287
+- rebuild
+
+* Wed Aug 24 2011 Oden Eriksson <oeriksson@mandriva.com> 0.1.0-3
++ Revision: 696464
+- rebuilt for php-5.3.8
+
+* Fri Aug 19 2011 Oden Eriksson <oeriksson@mandriva.com> 0.1.0-2
++ Revision: 695459
+- rebuilt for php-5.3.7
+
+* Tue Jun 07 2011 Oden Eriksson <oeriksson@mandriva.com> 0.1.0-1
++ Revision: 683087
+- fix deps
+- silly typo
+- fix build
+- import php-rsync
+
+
+* Tue Jun 07 2011 Oden Eriksson <oeriksson@mandriva.com> 0.1.0-1mdv2010.2
+- initial Mandriva package
