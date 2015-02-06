@@ -6,7 +6,7 @@
 Summary:	Wrapper for librsync library
 Name:		php-%{modname}
 Version:	0.1.0
-Release:	6
+Release:	7
 Group:		Development/PHP
 License:	Modified BSD License
 URL:		http://pecl.php.net/package/rsync/
