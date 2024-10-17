@@ -9,7 +9,7 @@ Version:	0.1.0
 Release:	7
 Group:		Development/PHP
 License:	Modified BSD License
-URL:		http://pecl.php.net/package/rsync/
+URL:		https://pecl.php.net/package/rsync/
 Source0:	http://pecl.php.net/get/rsync-%{version}.tgz
 Source1:	B21_rsync.ini
 BuildRequires:	php-devel >= 3:5.2.0
